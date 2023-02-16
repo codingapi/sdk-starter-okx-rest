@@ -10,8 +10,8 @@
 * maven依赖
 ```
     <dependency>
-        <groupId>com.codingapi</groupId>
-        <artifactId>sdk-starter-okx-rest</artifactId>
+        <groupId>com.codingapi.sdk</groupId>
+        <artifactId>starter-okx-rest</artifactId>
         <version>${last.version}</version>
     </dependency>
 ```

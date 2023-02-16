@@ -8,12 +8,12 @@
         <version>2.7.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.codingapi</groupId>
-    <artifactId>sdk-starter-okx-rest</artifactId>
+    <groupId>com.codingapi.sdk</groupId>
+    <artifactId>starter-okx-rest</artifactId>
     <version>0.0.1</version>
 
-    <name>sdk-starter-okx-rest</name>
-    <description>sdk-starter-okx-rest</description>
+    <name>starter-okx-rest</name>
+    <description>starter-okx-rest</description>
     <properties>
         <maven.compile.source>11</maven.compile.source>
         <maven.compile.target>11</maven.compile.target>
