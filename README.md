@@ -236,8 +236,8 @@ public class Order {
 
 ```
 
-* 请在编写对应接口的单元测试  
-以获取成交记录为例.主要代码提交时不要将自己的apikey参数提交到Git上。本项目中已经将`application-dev.properties`配置文件过滤提交
+* 请在编写对应接口的单元测试   
+以获取成交记录为例.(注意：代码提交时,不要将自己的apikey参数提交到Git上。本项目中已过滤了`application-dev.properties`的提交)
 
 ```
 
