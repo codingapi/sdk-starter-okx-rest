@@ -5,7 +5,7 @@
 
 ## 使用步骤
 
-* 源码本地打包(暂未上传中心仓库,后续将上传中心库)
+* 源码本地打包(暂未上传中心仓库,后续将上传中心库)  
 `mvn clean -DskipTests=true  install`
 * maven依赖
 ```
@@ -54,10 +54,10 @@ codingapi.okx.config.mock=false
 本框架基于RestTemplate开发，通过底层的抽象完成的SDK开发。 因此允许用户自行拓展维护新的接口。
 
 
-* 确定API模板
+* 确定API模板  
 目前已经提供了AccountApi、MarketApi、PublicApi、SystemApi、TradeApi,这些模块的划分依据是根据okx接口文档的地址前缀。  
 例如批量下单接口地址为 /api/v5/trade/batch-orders，即归到了TradeApi模块下。
-* 编写请求参数与相应参数对象
+* 编写请求参数与相应参数对象  
 以下单接口为例
 ```
 
@@ -236,7 +236,7 @@ public class Order {
 
 ```
 
-* 请在编写对应接口的单元测试
+* 请在编写对应接口的单元测试  
 以获取成交记录为例.主要代码提交时不要将自己的apikey参数提交到Git上。本项目中已经将`application-dev.properties`配置文件过滤提交
 
 ```
@@ -259,5 +259,5 @@ class MarketApiTest {
 }
 ```
 
-* 提交PR
+* 提交PR  
 当你确认代码已经测试没有问题,欢迎提交PR贡献合并。
