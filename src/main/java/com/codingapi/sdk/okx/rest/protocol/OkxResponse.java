@@ -1,4 +1,4 @@
-package com.codingapi.sdk.okx.rest.dto;
+package com.codingapi.sdk.okx.rest.protocol;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.Getter;

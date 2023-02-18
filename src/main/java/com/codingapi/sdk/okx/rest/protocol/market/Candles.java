@@ -1,6 +1,6 @@
-package com.codingapi.sdk.okx.rest.dto.market;
+package com.codingapi.sdk.okx.rest.protocol.market;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import com.codingapi.springboot.framework.rest.param.RestParam;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import lombok.Getter;
@@ -69,8 +69,6 @@ public class Candles {
         }
     }
 
-    @Setter
-    @Getter
     public static class Response extends OkxResponse {
 
         public List getData() {

@@ -2,7 +2,7 @@ package com.codingapi.sdk.okx.rest.api;
 
 import com.alibaba.fastjson.JSONObject;
 import com.codingapi.sdk.okx.rest.client.SignOkxApi;
-import com.codingapi.sdk.okx.rest.dto.system.Status;
+import com.codingapi.sdk.okx.rest.protocol.system.Status;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

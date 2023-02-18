@@ -1,6 +1,6 @@
 package com.codingapi.sdk.okx.rest.api;
 
-import com.codingapi.sdk.okx.rest.dto.market.Trades;
+import com.codingapi.sdk.okx.rest.protocol.market.Trades;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

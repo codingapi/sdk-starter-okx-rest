@@ -2,10 +2,10 @@ package com.codingapi.sdk.okx.rest.api;
 
 import com.alibaba.fastjson.JSONObject;
 import com.codingapi.sdk.okx.rest.client.SignOkxApi;
-import com.codingapi.sdk.okx.rest.dto.account.Balance;
-import com.codingapi.sdk.okx.rest.dto.account.LeverageInfo;
-import com.codingapi.sdk.okx.rest.dto.account.LeverageSet;
-import com.codingapi.sdk.okx.rest.dto.account.Positions;
+import com.codingapi.sdk.okx.rest.protocol.account.Balance;
+import com.codingapi.sdk.okx.rest.protocol.account.LeverageInfo;
+import com.codingapi.sdk.okx.rest.protocol.account.LeverageSet;
+import com.codingapi.sdk.okx.rest.protocol.account.Positions;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

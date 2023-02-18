@@ -2,10 +2,10 @@ package com.codingapi.sdk.okx.rest.api;
 
 import com.alibaba.fastjson.JSONObject;
 import com.codingapi.sdk.okx.rest.client.SignOkxApi;
-import com.codingapi.sdk.okx.rest.dto.market.Books;
-import com.codingapi.sdk.okx.rest.dto.market.Candles;
-import com.codingapi.sdk.okx.rest.dto.market.Ticker;
-import com.codingapi.sdk.okx.rest.dto.market.Trades;
+import com.codingapi.sdk.okx.rest.protocol.market.Books;
+import com.codingapi.sdk.okx.rest.protocol.market.Candles;
+import com.codingapi.sdk.okx.rest.protocol.market.Ticker;
+import com.codingapi.sdk.okx.rest.protocol.market.Trades;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -82,6 +82,12 @@ public class MarketApi {
     }
 
 
+    /**
+     * 获取交易产品公共成交数据
+     * <a href="https://www.okx.com/docs-v5/zh/#rest-api-market-data-get-trades">api</a>
+     * @param instId 产品ID，如 BTC-USDT
+     * @return {@link Trades.Response}
+     */
     public Trades.Response trades(String instId){
       return trades(instId,100);
     }

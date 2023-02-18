@@ -1,6 +1,6 @@
-package com.codingapi.sdk.okx.rest.dto.account;
+package com.codingapi.sdk.okx.rest.protocol.account;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.Getter;
 import lombok.Setter;
@@ -223,19 +223,6 @@ public class Positions {
          * 适用于组合保证金模式
          */
         private String spotInUseCcy;
-
-
-        public float getPosUsdt(){
-            return (float) (Float.parseFloat(last)/100.0/Float.parseFloat(lever) * Float.parseFloat(pos));
-        }
-
-        public float getUplRatioValue(){
-            return (float) (Float.parseFloat(uplRatio) * 100.0);
-        }
-
-        public float getMgnRatioValue(){
-            return (float) (Float.parseFloat(mgnRatio) * 100.0);
-        }
     }
 
     public static class Response extends OkxResponse {
@@ -243,72 +230,6 @@ public class Positions {
         public List<Data> getData() {
             return getMultiData(Data.class);
         }
-
-        public Data getData(String instId){
-            if(isSuccess()){
-                for(Data data:getData()){
-                    if(data.getInstId().equals(instId)){
-                        return data;
-                    }
-                }
-            }
-            return null;
-        }
-
-        public Position getPosition(String instId){
-            Data data = getData(instId);
-            if(data!=null){
-                return new Position(
-                            Integer.parseInt(data.getLever()),
-                            data.getPosUsdt(),
-                            Float.parseFloat(data.getUpl()),
-                            data.getUplRatioValue(),
-                            Float.parseFloat(data.getAvgPx()),
-                            Float.parseFloat(data.getMargin()),
-                            Float.parseFloat(data.getMgnRatio()),
-                            Float.parseFloat(data.getLiqPx()),
-                            Float.parseFloat(data.getMarkPx())
-                        );
-            }
-            return null;
-        }
     }
 
-    @Getter
-    public static class Position{
-
-        private final int lever;
-        private final float posUsdt;
-        private final float upl;
-        private final float uplRatio;
-        private final float avgPx;
-        private final float margin;
-        private final float mgnRatio;
-        private final float liqPx;
-        private final float markPx;
-
-        public Position(int lever, float posUsdt, float upl, float uplRatio, float avgPx, float margin, float mgnRatio, float liqPx, float markPx) {
-            this.lever = lever;
-            this.posUsdt = posUsdt;
-            this.upl = upl;
-            this.uplRatio = uplRatio;
-            this.avgPx = avgPx;
-            this.margin = margin;
-            this.mgnRatio = mgnRatio;
-            this.liqPx = liqPx;
-            this.markPx = markPx;
-        }
-
-        public void print(){
-            System.out.println("杠杆倍数:"+lever);
-            System.out.println("持仓数量(USDT):"+posUsdt);
-            System.out.println("未实现收益(USDT):"+upl);
-            System.out.println("未实现收益率(%):"+uplRatio);
-            System.out.println("开仓平均价:"+avgPx);
-            System.out.println("保证金余额(USDT):"+margin);
-            System.out.println("保证金率(%):"+mgnRatio);
-            System.out.println("预估强平价(USDT):"+liqPx);
-            System.out.println("标记价格(USDT):"+markPx);
-        }
-    }
 }

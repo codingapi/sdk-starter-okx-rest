@@ -1,7 +1,6 @@
 package com.codingapi.sdk.okx.rest.client;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.codingapi.sdk.okx.rest.properties.OkxConfigProperties;
 import com.codingapi.sdk.okx.rest.sign.OkxSigner;
 import com.codingapi.springboot.framework.rest.HttpClient;

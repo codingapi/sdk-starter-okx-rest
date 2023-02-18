@@ -1,6 +1,6 @@
-package com.codingapi.sdk.okx.rest.dto.account;
+package com.codingapi.sdk.okx.rest.protocol.account;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -61,21 +61,6 @@ public class Balance {
 
         public List<Data> getData() {
             return getMultiData(Data.class);
-        }
-
-        public float getCashBal(String ccy){
-            if(isSuccess()){
-                Data data = getData().get(0);
-                List<Detail> details =  data.getDetails();
-                if(details.size()>0){
-                    for(Detail detail:details){
-                        if(detail.getCcy().equals(ccy)){
-                            return Float.parseFloat(detail.getCashBal());
-                        }
-                    }
-                }
-            }
-            return 0;
         }
     }
 

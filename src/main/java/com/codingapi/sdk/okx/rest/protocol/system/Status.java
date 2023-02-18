@@ -1,6 +1,6 @@
-package com.codingapi.sdk.okx.rest.dto.system;
+package com.codingapi.sdk.okx.rest.protocol.system;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

@@ -1,6 +1,6 @@
-package com.codingapi.sdk.okx.rest.dto.account;
+package com.codingapi.sdk.okx.rest.protocol.account;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,14 +43,6 @@ public class LeverageInfo {
 
         public List<Data> getData() {
             return getMultiData(Data.class);
-        }
-
-        public int getLevel() {
-            if (isSuccess()){
-                Data data = getData().get(0);
-                return Integer.parseInt(data.getLever());
-            }
-            return 0;
         }
     }
 }

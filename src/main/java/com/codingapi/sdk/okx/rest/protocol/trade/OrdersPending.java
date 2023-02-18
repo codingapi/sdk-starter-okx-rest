@@ -1,34 +1,86 @@
-package com.codingapi.sdk.okx.rest.dto.trade;
+package com.codingapi.sdk.okx.rest.protocol.trade;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 
-public class OrderQuery {
+public class OrdersPending {
 
     @Setter
     @Getter
     public static class Request implements RestParam {
 
+
+        /**
+         * 产品类型
+         * 否
+         * SPOT：币币
+         * SWAP：永续合约
+         * FUTURES：交割合约
+         * MARGIN：杠杆
+         */
+        private String instType;
+
+
+        /**
+         * 标的指数
+         * 否
+         */
+        private String uly;
+
+        /**
+         * 交易品种
+         * 适用于交割/永续/期权
+         * 否
+         */
+        private String instFamily;
+
         /**
          * 产品ID
-         * 是
+         * 否
          */
         private String instId;
 
         /**
-         * 订单ID ， ordId和clOrdId必须传一个，若传两个，以ordId为主
+         * 订单类型
+         * 否
+         * market：市价单
+         * limit：限价单
+         * post_only：只做maker单
+         * fok：全部成交或立即取消
+         * ioc：立即成交并取消剩余
+         * optimal_limit_ioc：市价委托立即成交并取消剩余（仅适用交割、永续
          */
-        private String ordId;
+        private String ordType;
 
         /**
-         * 用户自定义ID
+         * 订单状态
+         * 否
+         * live：等待成交
+         * partially_filled：部分成交
          */
-        private String clOrdId;
+        private String state;
 
+        /**
+         * 请求此ID之前（更旧的数据）的分页内容，传的值为对应接口的ordId
+         * 否
+         */
+        private String after;
+
+        /**
+         * 请求此ID之后（更新的数据）的分页内容，传的值为对应接口的ordId
+         * 否
+         */
+        private String before;
+
+        /**
+         * 分页返回的结果集数量，最大为300，不填默认返回100条
+         * 否
+         */
+        private String limit;
     }
 
     @Setter
@@ -39,76 +91,6 @@ public class OrderQuery {
             return getMultiData(Data.class);
         }
 
-        public float getOrderPrice(){
-            if (isSuccess()){
-                if(getData().size()>0) {
-                    Data data = getData().get(0);
-                    /**
-                     * 订单状态
-                     * canceled：撤单成功
-                     * live：等待成交
-                     * partially_filled：部分成交
-                     * filled：完全成交
-                     */
-                    if("filled".equals(data.getState())){
-                        return Float.parseFloat(data.getFillPx());
-                    }
-                    if("partially_filled".equals(data.getState())){
-                        return Float.parseFloat(data.getFillPx());
-                    }
-                    // 若订单处于等待成交的情况下，返回的价格为委托价格。
-                    // 但是若是在挂单下单的时候，极有可能这里处于live状态。
-                    // 挂单状态将会影响获取的最新价。
-                    if("live".equals(data.getState())){
-                        //档处于待成交状态时，需要等等然后再执行查询
-                        return -1;
-                    }
-                }
-            }
-            return 0;
-        }
-
-        public String getOrderId(){
-            if (isSuccess()){
-                if(getData().size()>0) {
-                    Data data = getData().get(0);
-                    return data.getOrdId();
-                }
-            }
-            return null;
-        }
-
-        public long getOrderTimestamp(){
-            if(isSuccess()){
-                if(getData().size()>0) {
-                    Data data = getData().get(0);
-                    return Long.parseLong(data.getCTime());
-                }
-            }
-            return 0;
-        }
-
-        /**
-         * sz：即您的委托成功的数量，不会因成交量而变化
-         * accFillSz：累计成交数量，根据您的该笔订单的总共成交的数量而变化
-         * fillSz：最新成交数量，即该笔订单每次成交的最新数量，根据成交状态返回的总是最后一次的成交数量
-         *
-         * 下了一笔订单数量为10，根据行情分次成交成交数量依次为3，4，3，
-         * 这时sz始终为10，fillsz依次为3，4，3，accfiisz为3，7，10
-         *
-         * 如果sz委托10，而accfiisz为7的时候，订单state为 partially_filled
-         *
-         * @return 委托数量 乐观假设 返回委托数量，即假设下单的委托都将会成功，因此以sz作为数量。
-         */
-        public float getOrderSz() {
-            if(isSuccess()){
-                if(getData().size()>0) {
-                    Data data = getData().get(0);
-                    return Float.parseFloat(data.getSz());
-                }
-            }
-            return 0;
-        }
     }
 
     @Setter
@@ -320,7 +302,4 @@ public class OrderQuery {
          */
         private String cTime;
     }
-
-
-
 }

@@ -3,7 +3,7 @@ package com.codingapi.sdk.okx.rest.api;
 
 import com.alibaba.fastjson.JSONObject;
 import com.codingapi.sdk.okx.rest.client.SignOkxApi;
-import com.codingapi.sdk.okx.rest.dto.pub.ConvertContractCoin;
+import com.codingapi.sdk.okx.rest.protocol.pub.ConvertContractCoin;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

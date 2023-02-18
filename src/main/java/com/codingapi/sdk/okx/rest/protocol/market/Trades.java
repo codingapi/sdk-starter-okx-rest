@@ -1,6 +1,6 @@
-package com.codingapi.sdk.okx.rest.dto.market;
+package com.codingapi.sdk.okx.rest.protocol.market;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.Getter;
 import lombok.Setter;

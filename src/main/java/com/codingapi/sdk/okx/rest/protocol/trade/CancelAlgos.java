@@ -1,7 +1,7 @@
-package com.codingapi.sdk.okx.rest.dto.trade;
+package com.codingapi.sdk.okx.rest.protocol.trade;
 
 import com.alibaba.fastjson.JSONArray;
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import lombok.*;
 
 import java.util.List;

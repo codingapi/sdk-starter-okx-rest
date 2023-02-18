@@ -1,6 +1,6 @@
-package com.codingapi.sdk.okx.rest.dto.pub;
+package com.codingapi.sdk.okx.rest.protocol.pub;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.Getter;
 import lombok.Setter;
@@ -77,12 +77,5 @@ public class ConvertContractCoin {
             return getMultiData(Data.class);
         }
 
-        public int getCount() {
-            if(isSuccess()){
-                Data data = getData().get(0);
-                return Integer.parseInt(data.getSz());
-            }
-            return 0;
-        }
     }
 }

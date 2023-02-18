@@ -1,6 +1,6 @@
-package com.codingapi.sdk.okx.rest.dto.trade;
+package com.codingapi.sdk.okx.rest.protocol.trade;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.Getter;
 import lombok.Setter;
@@ -78,18 +78,6 @@ public class OrdersAlgoPending {
 
         public List<Data> getData() {
             return getMultiData(Data.class);
-        }
-
-        public String getLiveAlgoId(){
-            if(isSuccess()){
-                if(getData().size()>0) {
-                    Data data = getData().get(0);
-                    if(data.getState().equals("live")) {
-                        return data.getAlgoId();
-                    }
-                }
-            }
-            return null;
         }
 
     }

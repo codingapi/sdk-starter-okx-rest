@@ -1,6 +1,6 @@
-package com.codingapi.sdk.okx.rest.dto.market;
+package com.codingapi.sdk.okx.rest.protocol.market;
 
-import com.codingapi.sdk.okx.rest.dto.OkxResponse;
+import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,13 +16,6 @@ public class Ticker {
             return getMultiData(Data.class);
         }
 
-        public float getLast() {
-            if(isSuccess()){
-                Data data = getData().get(0);
-                return Float.parseFloat(data.getLast());
-            }
-            return 0;
-        }
     }
 
     @Getter
