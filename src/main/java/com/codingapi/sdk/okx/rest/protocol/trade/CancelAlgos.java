@@ -12,6 +12,7 @@ public class CancelAlgos {
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
+    @ToString
     public static class Body{
 
         /**
@@ -30,6 +31,7 @@ public class CancelAlgos {
 
     @Setter
     @Getter
+    @ToString
     public static class Request  {
 
         private JSONArray jsonArray = new JSONArray();

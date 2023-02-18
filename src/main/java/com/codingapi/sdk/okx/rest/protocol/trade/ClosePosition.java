@@ -12,6 +12,7 @@ public class ClosePosition {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
         /**
          * 产品ID，如 BTC-USD-190927
@@ -73,6 +74,7 @@ public class ClosePosition {
         private String tag;
     }
 
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {

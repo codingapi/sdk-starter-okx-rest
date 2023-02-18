@@ -13,6 +13,7 @@ public class Positions {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
 
         /**
@@ -223,6 +224,19 @@ public class Positions {
          * 适用于组合保证金模式
          */
         private String spotInUseCcy;
+
+
+        public float getPosUsdt(){
+            return (float) (Float.parseFloat(last)/100.0/Float.parseFloat(lever) * Float.parseFloat(pos));
+        }
+
+        public float getUplRatioValue(){
+            return (float) (Float.parseFloat(uplRatio) * 100.0);
+        }
+
+        public float getMgnRatioValue(){
+            return (float) (Float.parseFloat(mgnRatio) * 100.0);
+        }
     }
 
     public static class Response extends OkxResponse {

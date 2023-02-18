@@ -12,6 +12,7 @@ public class ConvertContractCoin {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
         /**
          * 转换类型
@@ -71,6 +72,7 @@ public class ConvertContractCoin {
         private String unit;
     }
 
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {

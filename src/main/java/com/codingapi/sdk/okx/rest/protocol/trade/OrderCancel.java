@@ -12,6 +12,7 @@ public class OrderCancel {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
         /**
          * 产品ID，如 BTC-USD-190927

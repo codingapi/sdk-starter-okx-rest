@@ -13,6 +13,7 @@ public class Trades {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
 
         /**
@@ -45,6 +46,7 @@ public class Trades {
 
     @Setter
     @Getter
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {

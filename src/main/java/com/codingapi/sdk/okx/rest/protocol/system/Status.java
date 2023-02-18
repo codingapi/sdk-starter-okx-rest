@@ -10,6 +10,7 @@ import java.util.List;
 public class Status {
 
 
+    @ToString
     public enum Request{
         scheduled,ongoing,pre_open,completed,canceled
     }
@@ -59,6 +60,7 @@ public class Status {
 
     }
 
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {

@@ -5,6 +5,7 @@ import com.codingapi.springboot.framework.rest.param.RestParam;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class Candles {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
 
         /**

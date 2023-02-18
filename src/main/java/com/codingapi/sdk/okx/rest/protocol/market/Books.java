@@ -12,6 +12,7 @@ public class Books {
 
     @Setter
     @Getter
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {
