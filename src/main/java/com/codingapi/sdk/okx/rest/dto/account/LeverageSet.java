@@ -12,6 +12,7 @@ public class LeverageSet {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
 
         /**
@@ -63,6 +64,7 @@ public class LeverageSet {
         private String lever;
     }
 
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {

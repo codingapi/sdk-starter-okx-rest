@@ -13,6 +13,7 @@ public class Positions {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
 
         /**
@@ -238,6 +239,7 @@ public class Positions {
         }
     }
 
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {
@@ -274,6 +276,7 @@ public class Positions {
         }
     }
 
+    @ToString
     @Getter
     public static class Position{
 

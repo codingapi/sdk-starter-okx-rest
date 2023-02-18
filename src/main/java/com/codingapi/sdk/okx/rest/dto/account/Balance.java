@@ -57,6 +57,7 @@ public class Balance {
     }
 
 
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {

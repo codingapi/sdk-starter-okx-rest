@@ -12,6 +12,7 @@ public class OrderAmend {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
         /**
          * 产品ID，如 BTC-USD-190927
@@ -69,6 +70,7 @@ public class OrderAmend {
         private String sMsg;
     }
 
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {

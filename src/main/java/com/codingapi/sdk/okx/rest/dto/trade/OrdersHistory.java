@@ -4,6 +4,7 @@ import com.codingapi.sdk.okx.rest.dto.OkxResponse;
 import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class OrdersHistory {
 
     @Setter
     @Getter
+    @ToString
     public static class Request implements RestParam {
 
         /**
@@ -101,6 +103,7 @@ public class OrdersHistory {
 
     @Setter
     @Getter
+    @ToString
     public static class Response extends OkxResponse {
 
         public List<Data> getData() {
@@ -111,6 +114,7 @@ public class OrdersHistory {
 
     @Setter
     @Getter
+    @ToString
     public static class Data{
         /**
          * 产品类型
