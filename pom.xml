@@ -18,7 +18,7 @@
         <maven.compile.source>11</maven.compile.source>
         <maven.compile.target>11</maven.compile.target>
         <java.version>11</java.version>
-        <codingapi.framewrok.version>1.5.7</codingapi.framewrok.version>
+        <codingapi.framewrok.version>1.5.8</codingapi.framewrok.version>
     </properties>
     <dependencies>
 
