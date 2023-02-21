@@ -3,7 +3,8 @@ package com.codingapi.sdk.okx.rest.client;
 import com.alibaba.fastjson.JSON;
 import com.codingapi.sdk.okx.rest.properties.OkxConfigProperties;
 import com.codingapi.sdk.okx.rest.sign.OkxSigner;
-import com.codingapi.springboot.framework.rest.HttpClient;
+import com.codingapi.springboot.framework.rest.HttpRequest;
+import com.codingapi.springboot.framework.rest.Request;
 import com.codingapi.springboot.framework.rest.RestClient;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import com.codingapi.springboot.framework.rest.properties.HttpProxyProperties;
@@ -29,7 +30,7 @@ public class SignOkxApi {
 
     public SignOkxApi(HttpProxyProperties properties, OkxConfigProperties okxConfig) {
         this.okxConfig = okxConfig;
-        HttpClient.IHttpRequestHandler requestHandler = (client, uri, method, headers, httpEntity) -> {
+        HttpRequest.IHttpRequestHandler requestHandler = (client, uri, method, headers, httpEntity) -> {
             if (method.equals(HttpMethod.POST)) {
                 String body = (String) httpEntity.getBody();
                 signHeaders(headers, method.name(), URI.create(uri), body);
@@ -76,5 +77,21 @@ public class SignOkxApi {
 
     public String getSign(String api, RestParamBuilder restParam) {
         return getSign(api, restParam.toFormRequest());
+    }
+
+    public Request getPostSignRequest(String api, JSON jsonObject) {
+        return restClient.getPostRequest(api,new HttpHeaders(), jsonObject);
+    }
+
+    public Request getPostSignRequest(String api, RestParamBuilder restParam) {
+        return getPostSignRequest(api,restParam.toJsonRequest());
+    }
+
+    public Request getGetSignRequest(String api, MultiValueMap<String, String> uriVariables) {
+        return restClient.getGetRequest(api,new HttpHeaders(), uriVariables);
+    }
+
+    public Request getGetSignRequest(String api, RestParamBuilder restParam) {
+        return getGetSignRequest(api, restParam.toFormRequest());
     }
 }
