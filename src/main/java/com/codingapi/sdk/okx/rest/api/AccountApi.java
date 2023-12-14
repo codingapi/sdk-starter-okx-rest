@@ -6,7 +6,7 @@ import com.codingapi.sdk.okx.rest.protocol.account.Balance;
 import com.codingapi.sdk.okx.rest.protocol.account.LeverageInfo;
 import com.codingapi.sdk.okx.rest.protocol.account.LeverageSet;
 import com.codingapi.sdk.okx.rest.protocol.account.Positions;
-import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
+import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +23,7 @@ public class AccountApi {
      * @return {@link Balance.Response}
      */
     public Balance.Response balance(String ccy) {
-        String data = signOkxApi.getSign("/api/v5/account/balance", RestParamBuilder.create().add("ccy", ccy));
+        String data = signOkxApi.getSign("/api/v5/account/balance", RestParam.create().add("ccy", ccy));
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Balance.Response.class);
     }
@@ -35,7 +35,7 @@ public class AccountApi {
      * @return {@link LeverageInfo.Response}
      */
     public LeverageInfo.Response leverageInfo(LeverageInfo.Request request) {
-        String data = signOkxApi.getSign("/api/v5/account/leverage-info", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/account/leverage-info", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, LeverageInfo.Response.class);
     }
@@ -48,7 +48,7 @@ public class AccountApi {
      * @return {@link LeverageSet.Response}
      */
     public LeverageSet.Response leverageSet(LeverageSet.Request request) {
-        String data = signOkxApi.postSign("/api/v5/account/set-leverage", request.getParameters());
+        String data = signOkxApi.postSign("/api/v5/account/set-leverage", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, LeverageSet.Response.class);
     }
@@ -60,7 +60,7 @@ public class AccountApi {
      * @return {@link Positions.Request}
      */
     public Positions.Response positions(Positions.Request request){
-        String data = signOkxApi.getSign("/api/v5/account/positions", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/account/positions", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Positions.Response.class);
     }

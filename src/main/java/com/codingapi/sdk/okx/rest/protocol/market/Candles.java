@@ -1,8 +1,8 @@
 package com.codingapi.sdk.okx.rest.protocol.market;
 
 import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
+import com.codingapi.springboot.framework.rest.param.IRestParam;
 import com.codingapi.springboot.framework.rest.param.RestParam;
-import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,7 +17,7 @@ public class Candles {
     @Setter
     @Getter
     @ToString
-    public static class Request implements RestParam {
+    public static class Request implements IRestParam {
 
         /**
          * 产品ID，如BTC-USD-190927-5000-C
@@ -49,8 +49,8 @@ public class Candles {
 
 
         @Override
-        public RestParamBuilder getParameters() {
-            RestParamBuilder builder = RestParamBuilder.create();
+        public RestParam toParameters() {
+            RestParam builder = RestParam.create();
             builder.add("instId", instId);
 
             if (!StringUtils.hasText(bar)) {

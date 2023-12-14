@@ -19,7 +19,7 @@ public class TradeApi {
      * @return {@link Order.Response}
      */
     public Order.Response order(Order.Request request) {
-        String data = signOkxApi.postSign("/api/v5/trade/order", request.getParameters());
+        String data = signOkxApi.postSign("/api/v5/trade/order", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Order.Response.class);
     }
@@ -31,7 +31,7 @@ public class TradeApi {
      * @return {@link OrderCancel.Response}
      */
     public OrderCancel.Response cancel(OrderCancel.Request request) {
-        String data = signOkxApi.postSign("/api/v5/trade/cancel-order", request.getParameters());
+        String data = signOkxApi.postSign("/api/v5/trade/cancel-order", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, OrderCancel.Response.class);
     }
@@ -43,7 +43,7 @@ public class TradeApi {
      * @return {@link OrderAmend.Response}
      */
     public OrderAmend.Response amend(OrderAmend.Request request) {
-        String data = signOkxApi.postSign("/api/v5/trade/amend-order", request.getParameters());
+        String data = signOkxApi.postSign("/api/v5/trade/amend-order", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, OrderAmend.Response.class);
     }
@@ -56,7 +56,7 @@ public class TradeApi {
      * @return {@link ClosePosition.Response}
      */
     public ClosePosition.Response closePosition(ClosePosition.Request request) {
-        String data = signOkxApi.postSign("/api/v5/trade/close-position", request.getParameters());
+        String data = signOkxApi.postSign("/api/v5/trade/close-position", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, ClosePosition.Response.class);
     }
@@ -69,7 +69,7 @@ public class TradeApi {
      * @return {@link OrderAlgo.Response}
      */
     public OrderAlgo.Response algo(OrderAlgo.Request request) {
-        String data = signOkxApi.postSign("/api/v5/trade/order-algo", request.getParameters());
+        String data = signOkxApi.postSign("/api/v5/trade/order-algo", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, OrderAlgo.Response.class);
     }
@@ -95,7 +95,7 @@ public class TradeApi {
      * @return {@link OrdersAlgoPending.Response}
      */
     public OrdersAlgoPending.Response  ordersAlgoPending(OrdersAlgoPending.Request request){
-        String data = signOkxApi.getSign("/api/v5/trade/orders-algo-pending", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/trade/orders-algo-pending", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, OrdersAlgoPending.Response.class);
     }
@@ -108,7 +108,7 @@ public class TradeApi {
      * @return {@link OrdersAlgoHistory.Response}
      */
     public OrdersAlgoHistory.Response  ordersAlgoHistory(OrdersAlgoHistory.Request request){
-        String data = signOkxApi.getSign("/api/v5/trade/orders-algo-history", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/trade/orders-algo-history", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, OrdersAlgoHistory.Response.class);
     }
@@ -120,7 +120,7 @@ public class TradeApi {
      * @return  {@link OrdersPending.Response}
      */
     public OrdersPending.Response ordersPending(OrdersPending.Request request){
-        String data = signOkxApi.getSign("/api/v5/trade/orders-pending", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/trade/orders-pending", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, OrdersPending.Response.class);
     }
@@ -133,7 +133,7 @@ public class TradeApi {
      * @return  {@link OrderQuery.Response}
      */
     public OrderQuery.Response orderQuery(OrderQuery.Request request){
-        String data = signOkxApi.getSign("/api/v5/trade/order", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/trade/order", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, OrderQuery.Response.class);
     }
@@ -145,7 +145,7 @@ public class TradeApi {
      * @return {@link OrdersHistory.Request}
      */
     public OrdersHistory.Response orderHistory(OrdersHistory.Request request){
-        String data = signOkxApi.getSign("/api/v5/trade/fills", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/trade/fills", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, OrdersHistory.Response.class);
     }

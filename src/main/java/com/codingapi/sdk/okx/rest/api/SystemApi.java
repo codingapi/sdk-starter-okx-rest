@@ -3,7 +3,7 @@ package com.codingapi.sdk.okx.rest.api;
 import com.alibaba.fastjson.JSONObject;
 import com.codingapi.sdk.okx.rest.client.SignOkxApi;
 import com.codingapi.sdk.okx.rest.protocol.system.Status;
-import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
+import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,9 +23,9 @@ public class SystemApi {
     public Status.Response status(Status.Request request) {
         String data;
         if(request!=null) {
-            data = signOkxApi.getSign("/api/v5/system/status", RestParamBuilder.create().add("state", request.name()));
+            data = signOkxApi.getSign("/api/v5/system/status", RestParam.create().add("state", request.name()));
         }else{
-            data = signOkxApi.getSign("/api/v5/system/status", (RestParamBuilder) null);
+            data = signOkxApi.getSign("/api/v5/system/status", (RestParam) null);
         }
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Status.Response.class);

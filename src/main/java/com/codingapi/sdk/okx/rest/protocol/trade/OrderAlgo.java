@@ -1,7 +1,7 @@
 package com.codingapi.sdk.okx.rest.protocol.trade;
 
 import com.codingapi.sdk.okx.rest.protocol.OkxResponse;
-import com.codingapi.springboot.framework.rest.param.RestParam;
+import com.codingapi.springboot.framework.rest.param.IRestParam;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,7 +14,7 @@ public class OrderAlgo {
     @Setter
     @Getter
     @ToString
-    public static class Request implements RestParam {
+    public static class Request implements IRestParam {
         /**
          * 产品ID，如 BTC-USD-190927-5000-C
          * 是否必须 是

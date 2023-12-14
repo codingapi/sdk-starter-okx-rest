@@ -18,7 +18,7 @@ public class PublicApi {
      *  <a href="https://www.okx.com/docs-v5/zh/#rest-api-public-data-get-unit-convert"></a>
      */
     public ConvertContractCoin.Response convertContractCoin(ConvertContractCoin.Request request){
-        String data = signOkxApi.getSign("/api/v5/public/convert-contract-coin",request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/public/convert-contract-coin",request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, ConvertContractCoin.Response.class);
     }

@@ -6,7 +6,7 @@ import com.codingapi.sdk.okx.rest.sign.OkxSigner;
 import com.codingapi.springboot.framework.rest.HttpRequest;
 import com.codingapi.springboot.framework.rest.Request;
 import com.codingapi.springboot.framework.rest.RestClient;
-import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
+import com.codingapi.springboot.framework.rest.param.RestParam;
 import com.codingapi.springboot.framework.rest.properties.HttpProxyProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -67,7 +67,7 @@ public class SignOkxApi {
         return restClient.post(api,new HttpHeaders(), jsonObject);
     }
 
-    public String postSign(String api, RestParamBuilder restParam) {
+    public String postSign(String api, RestParam restParam) {
         return postSign(api,restParam.toJsonRequest());
     }
 
@@ -75,7 +75,7 @@ public class SignOkxApi {
         return restClient.get(api,new HttpHeaders(), uriVariables);
     }
 
-    public String getSign(String api, RestParamBuilder restParam) {
+    public String getSign(String api, RestParam restParam) {
         return getSign(api, restParam.toFormRequest());
     }
 
@@ -83,7 +83,7 @@ public class SignOkxApi {
         return restClient.getPostRequest(api,new HttpHeaders(), jsonObject);
     }
 
-    public Request getPostSignRequest(String api, RestParamBuilder restParam) {
+    public Request getPostSignRequest(String api, RestParam restParam) {
         return getPostSignRequest(api,restParam.toJsonRequest());
     }
 
@@ -91,7 +91,7 @@ public class SignOkxApi {
         return restClient.getGetRequest(api,new HttpHeaders(), uriVariables);
     }
 
-    public Request getGetSignRequest(String api, RestParamBuilder restParam) {
+    public Request getGetSignRequest(String api, RestParam restParam) {
         return getGetSignRequest(api, restParam.toFormRequest());
     }
 }

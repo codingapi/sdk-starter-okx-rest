@@ -6,7 +6,7 @@ import com.codingapi.sdk.okx.rest.protocol.market.Books;
 import com.codingapi.sdk.okx.rest.protocol.market.Candles;
 import com.codingapi.sdk.okx.rest.protocol.market.Ticker;
 import com.codingapi.sdk.okx.rest.protocol.market.Trades;
-import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
+import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +23,7 @@ public class MarketApi {
      * @return {@link Candles.Response}
      */
     public Candles.Response candles(Candles.Request request) {
-        String data = signOkxApi.getSign("/api/v5/market/candles", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/market/candles", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Candles.Response.class);
     }
@@ -36,7 +36,7 @@ public class MarketApi {
      * @return {@link Candles.Response}
      */
     public Candles.Response historyCandles(Candles.Request request) {
-        String data = signOkxApi.getSign("/api/v5/market/history-candles", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/market/history-candles", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Candles.Response.class);
     }
@@ -48,7 +48,7 @@ public class MarketApi {
      * @return {@link Ticker.Response}
      */
     public Ticker.Response ticker(String instId) {
-        String data = signOkxApi.getSign("/api/v5/market/ticker", RestParamBuilder.create().add("instId",instId));
+        String data = signOkxApi.getSign("/api/v5/market/ticker", RestParam.create().add("instId",instId));
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Ticker.Response.class);
     }
@@ -62,7 +62,7 @@ public class MarketApi {
      * @return {@link Trades.Response}
      */
     public Trades.Response trades(String instId, int limit){
-        String data = signOkxApi.getSign("/api/v5/market/trades", RestParamBuilder.create().add("instId",instId)
+        String data = signOkxApi.getSign("/api/v5/market/trades", RestParam.create().add("instId",instId)
                 .add("limit",String.valueOf(limit)));
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Trades.Response.class);
@@ -76,7 +76,7 @@ public class MarketApi {
      * @return {@link Trades.Response}
      */
     public Trades.Response historyTrades(Trades.Request request){
-        String data = signOkxApi.getSign("/api/v5/market/history-trades", request.getParameters());
+        String data = signOkxApi.getSign("/api/v5/market/history-trades", request.toParameters());
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Trades.Response.class);
     }
@@ -103,7 +103,7 @@ public class MarketApi {
      * @return {@link Books.Response}
      */
     public Books.Response books(String instId, int sz){
-        String data = signOkxApi.getSign("/api/v5/market/books", RestParamBuilder.create().add("instId",instId)
+        String data = signOkxApi.getSign("/api/v5/market/books", RestParam.create().add("instId",instId)
                 .add("sz",String.valueOf(sz)));
         log.debug("response:{}", data);
         return JSONObject.parseObject(data, Books.Response.class);
