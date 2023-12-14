@@ -13,8 +13,10 @@
     <artifactId>starter-okx-rest</artifactId>
     <version>0.0.1</version>
 
+    <url>https://https://github.com/codingapi/sdk-starter-okx-rest</url>
     <name>starter-okx-rest</name>
-    <description>starter-okx-rest</description>
+    <description>okx sdk for Spring Boot</description>
+
     <properties>
         <maven.compile.source>17</maven.compile.source>
         <maven.compile.target>17</maven.compile.target>
