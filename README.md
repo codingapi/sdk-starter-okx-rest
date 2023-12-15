@@ -1,3 +1,5 @@
+[![Maven Central](https://img.shields.io/maven-central/v/com.codingapi.sdk/starter-okx-rest.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.codingapi.sdk%22%20AND%20a:%22starter-okx-rest%22)
+
 # sdk-starter-okx-rest
 
 基于OKX v5 rest api开发的springboot的OKX-REST-SDK starter  
@@ -5,8 +7,6 @@
 
 ## 使用步骤
 
-* 源码本地打包(暂未上传中心仓库,后续将上传中心库)  
-`mvn clean -DskipTests=true  install`
 * maven依赖
 ```
     <dependency>
