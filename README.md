@@ -1,3 +1,4 @@
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/codingapi/sdk-starter-okx-rest/blob/main/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/com.codingapi.sdk/starter-okx-rest.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.codingapi.sdk%22%20AND%20a:%22starter-okx-rest%22)
 
 # sdk-starter-okx-rest

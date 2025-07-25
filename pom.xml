@@ -5,13 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.6</version>
+        <version>3.3.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.codingapi.sdk</groupId>
     <artifactId>starter-okx-rest</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
     <url>https://https://github.com/codingapi/sdk-starter-okx-rest</url>
     <name>starter-okx-rest</name>
@@ -21,7 +21,7 @@
         <maven.compile.source>17</maven.compile.source>
         <maven.compile.target>17</maven.compile.target>
         <java.version>17</java.version>
-        <codingapi.framewrok.version>3.1.6</codingapi.framewrok.version>
+        <codingapi.framewrok.version>3.4.11</codingapi.framewrok.version>
         <snakeyaml.version>2.2</snakeyaml.version>
     </properties>
     <dependencies>
@@ -120,17 +120,6 @@
 
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${maven-compiler-plugin.version}</version>
-                        <configuration>
-                            <source>${maven.compile.source}</source>
-                            <target>${maven.compile.target}</target>
-                            <encoding>${project.build.sourceEncoding}</encoding>
-                            <compilerArgument>-Xlint:deprecation</compilerArgument>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
                         <executions>
                             <execution>
@@ -144,14 +133,14 @@
 
 
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.13</version>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.8.0</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
+                            <waitUntil>published</waitUntil>
                         </configuration>
                     </plugin>
 
